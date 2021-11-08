@@ -2,73 +2,95 @@
     GRUPO 2
     Script base de datos 
 */
-CREATE TABLE Empresa(
+
+/* Método de limpieza por buena practica */
+
+DROP TABLE IF EXISTS Empresa;
+DROP TABLE IF EXISTS Patologia;
+DROP TABLE IF EXISTS Superusuario;
+DROP TABLE IF EXISTS Chatbot;
+DROP TABLE IF EXISTS Consejo;
+DROP TABLE IF EXISTS Sintoma;
+DROP TABLE IF EXISTS RespChat;
+DROP TABLE IF EXISTS RespUs;
+DROP TABLE IF EXISTS Usuario;
+DROP TABLE IF EXISTS Estadistica;
+DROP TABLE IF EXISTS Usuario_Empresa;
+DROP TABLE IF EXISTS Patologia_Sintoma;
+DROP TABLE IF EXISTS Usuario_Sintoma;
+DROP TABLE IF EXISTS Usuario_Noticia;
+DROP TABLE IF EXISTS Superusuario_Estadistica;
+DROP TABLE IF EXISTS Usuario_Consejo;
+
+/* Creación de tabla */
+
+CREATE TABLE IF NOT EXISTS Empresa(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Correo varchar(100),
-    Contraseña varchar(100)
+    Contrasenia varchar(100)
 );
 
 
-CREATE TABLE Patologia(
+CREATE TABLE IF NOT EXISTS Patologia(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Descripcion varchar(100),
     recomendacion varchar(100)
 );
 
-CREATE TABLE Superusuario(
+CREATE TABLE IF NOT EXISTS Superusuario(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Correo varchar(100),
-    Contraseña varchar(100)
+    Contrasenia varchar(100)
 );
 
-CREATE TABLE Noticia(
+CREATE TABLE IF NOT EXISTS Noticia(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Descripcion varchar(100)
 );
 
-CREATE TABLE Chatbot(
+CREATE TABLE IF NOT EXISTS Chatbot(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Descripcion varchar(100)
 );
 
 
-CREATE TABLE Consejo(
+CREATE TABLE IF NOT EXISTS Consejo(
     ID SERIAL PRIMARY KEY,
     Descripcion varchar(100)
 );
 
-CREATE TABLE Sintoma(
+CREATE TABLE IF NOT EXISTS Sintoma(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Descripcion varchar(100)
 );
 
 /*Tabla Respuesta Chatbot*/
-CREATE TABLE RespChat(
+CREATE TABLE IF NOT EXISTS RespChat(
     ID SERIAL PRIMARY KEY,
     Descripcion varchar(100)
 );
 
 /*Tabla Respuesta usuario*/
-CREATE TABLE RespUs(
+CREATE TABLE IF NOT EXISTS RespUs(
     ID SERIAL PRIMARY KEY,
     Descripcion varchar(100)
 );
 
-CREATE TABLE Usuario(
+CREATE TABLE IF NOT EXISTS Usuario(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     edad int,
     Correo varchar(100),
-    Contraseña varchar(100)
+    Contrasenia varchar(100)
 );
 
-CREATE TABLE Estadistica(
+CREATE TABLE IF NOT EXISTS Estadistica(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Descripción varchar(100)
@@ -76,7 +98,7 @@ CREATE TABLE Estadistica(
 
 /* TABLA CON LLAVES FORANEAS*/
 
-CREATE TABLE Usuario_Empresa(
+CREATE TABLE IF NOT EXISTS Usuario_Empresa(
     id SERIAL PRIMARY KEY,
 
     id_Usuario SERIAL,
@@ -85,7 +107,7 @@ CREATE TABLE Usuario_Empresa(
     FOREIGN KEY (id_Empresa) REFERENCES Empresa (id)
 );
 
-CREATE TABLE Empresa_Estadistica(
+CREATE TABLE IF NOT EXISTS Empresa_Estadistica(
     id SERIAL PRIMARY KEY,
 
     id_Empresa SERIAL,
@@ -95,7 +117,7 @@ CREATE TABLE Empresa_Estadistica(
 );
 
 
-CREATE TABLE Patologia_Sintoma(
+CREATE TABLE IF NOT EXISTS Patologia_Sintoma(
     id SERIAL PRIMARY KEY,
 
     id_Patologia SERIAL,
@@ -104,7 +126,7 @@ CREATE TABLE Patologia_Sintoma(
     FOREIGN KEY (id_Sintoma) REFERENCES Sintoma (id)
 );
 
-CREATE TABLE Usuario_Sintoma(
+CREATE TABLE IF NOT EXISTS Usuario_Sintoma(
     id SERIAL PRIMARY KEY,
     id_Usuario SERIAL,
     id_Sintoma SERIAL,
@@ -112,7 +134,7 @@ CREATE TABLE Usuario_Sintoma(
     FOREIGN KEY (id_Sintoma) REFERENCES Sintoma (id)
 );
 
-CREATE TABLE Usuario_Patologia(
+CREATE TABLE IF NOT EXISTS Usuario_Patologia(
     id SERIAL PRIMARY KEY,
     id_Usuario SERIAL,
     id_Patologia SERIAL,
@@ -120,7 +142,7 @@ CREATE TABLE Usuario_Patologia(
     FOREIGN KEY (id_Patologia) REFERENCES Patologia (id)
 );
 
-CREATE TABLE Usuario_Noticia(
+CREATE TABLE IF NOT EXISTS Usuario_Noticia(
     id SERIAL PRIMARY KEY,
     id_Usuario SERIAL,
     id_Noticia SERIAL,
@@ -128,7 +150,7 @@ CREATE TABLE Usuario_Noticia(
     FOREIGN KEY (id_Noticia) REFERENCES Noticia (id)
 );
 
-CREATE TABLE Superusuario_Estadistica(
+CREATE TABLE IF NOT EXISTS Superusuario_Estadistica(
     id SERIAL PRIMARY KEY,
     id_Superusuario SERIAL,
     id_Estadistica SERIAL,
@@ -136,7 +158,7 @@ CREATE TABLE Superusuario_Estadistica(
     FOREIGN KEY (id_Estadistica) REFERENCES Estadistica (id)
 );
 
-CREATE TABLE Usuario_Consejo(
+CREATE TABLE IF NOT EXISTS Usuario_Consejo(
     id SERIAL PRIMARY KEY,
 
     id_Usuario SERIAL,
