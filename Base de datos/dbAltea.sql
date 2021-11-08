@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS Usuario(
 CREATE TABLE IF NOT EXISTS Estadistica(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
-    Descripción varchar(100)
+    Descripcion varchar(100)
 );
 
 /* TABLA CON LLAVES FORANEAS*/
