@@ -99,9 +99,9 @@ CREATE TABLE Patologia_Sintoma(
     id SERIAL PRIMARY KEY,
 
     id_Patologia SERIAL,
-    id_Sintomas SERIAL,
+    id_Sintoma SERIAL,
     FOREIGN KEY (id_Patologia) REFERENCES Patologia (id),
-    FOREIGN KEY (id_Sintoma) REFERENCES Sintomas (id)
+    FOREIGN KEY (id_Sintoma) REFERENCES Sintoma (id)
 );
 
 CREATE TABLE Usuario_Sintoma(
