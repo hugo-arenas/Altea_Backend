@@ -42,7 +42,7 @@ CREATE TABLE Consejo(
     Descripcion varchar(100)
 );
 
-CREATE TABLE Sintomas(
+CREATE TABLE Sintoma(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Descripcion varchar(100)
@@ -106,7 +106,6 @@ CREATE TABLE Patologia_Sintomas(
 
 CREATE TABLE Usuario_Sintoma(
     id SERIAL PRIMARY KEY,
-
     id_Usuario SERIAL,
     id_Sintoma SERIAL,
     FOREIGN KEY (id_Usuario) REFERENCES Usuario (id),
@@ -115,7 +114,6 @@ CREATE TABLE Usuario_Sintoma(
 
 CREATE TABLE Usuario_Patologia(
     id SERIAL PRIMARY KEY,
-
     id_Usuario SERIAL,
     id_Patologia SERIAL,
     FOREIGN KEY (id_Usuario) REFERENCES Usuario (id),
@@ -124,7 +122,6 @@ CREATE TABLE Usuario_Patologia(
 
 CREATE TABLE Usuario_Noticia(
     id SERIAL PRIMARY KEY,
-
     id_Usuario SERIAL,
     id_Noticia SERIAL,
     FOREIGN KEY (id_Usuario) REFERENCES Usuario (id),
@@ -133,7 +130,6 @@ CREATE TABLE Usuario_Noticia(
 
 CREATE TABLE Superusuario_Estadistica(
     id SERIAL PRIMARY KEY,
-
     id_Superusuario SERIAL,
     id_Estadistica SERIAL,
     FOREIGN KEY (id_Superusuario) REFERENCES Superusuario (id),
