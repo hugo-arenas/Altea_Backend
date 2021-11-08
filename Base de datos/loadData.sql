@@ -12,13 +12,13 @@ VALUES ('Michael','22','michael@correo.cl','michael');
 --Empresa
 INSERT INTO Empresa (Nombre, Correo, Contrasenia)
 VALUES ('Empresa X','empresax@correo.cl','empresax');
-INSERT INTO Empresa (Nombre, edad, Correo, Contrasenia)
+INSERT INTO Empresa (Nombre, Correo, Contrasenia)
 VALUES ('Empresa Y','empresay@correo.cl','empresay');
-INSERT INTO Empresa (Nombre, edad, Correo, Contrasenia)
+INSERT INTO Empresa (Nombre, Correo, Contrasenia)
 VALUES ('Empresa Z','empresaz@correo.cl','empresaz');
-INSERT INTO Empresa (Nombre, edad, Correo, Contrasenia)
+INSERT INTO Empresa (Nombre, Correo, Contrasenia)
 VALUES ('Empresa W','empresaw@correo.cl','empresaw');
-INSERT INTO Empresa (Nombre, edad, Correo, Contrasenia)
+INSERT INTO Empresa (Nombre, Correo, Contrasenia)
 VALUES ('Empresa B','empresab@correo.cl','empresab');
 --Patologia
 INSERT INTO Patologia (Nombre, Descripcion, recomendacion)
