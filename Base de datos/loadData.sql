@@ -193,11 +193,11 @@ VALUES ('1','2');
 INSERT INTO Superusuario_Estadistica(id_Superusuario, id_Estadistica)
 VALUES ('3','4');
 INSERT INTO Superusuario_Estadistica(id_Superusuario, id_Estadistica)
-VALUES ('5','2');
+VALUES ('3','2');
 INSERT INTO Superusuario_Estadistica(id_Superusuario, id_Estadistica)
 VALUES ('4','3');
 INSERT INTO Superusuario_Estadistica(id_Superusuario, id_Estadistica)
-VALUES ('1','5');
+VALUES ('1','4');
 --Usuario_Consejo
 INSERT INTO Usuario_Consejo(id_Usuario, id_Consejo)
 VALUES ('1','2');
