@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS Patologia(
 CREATE TABLE IF NOT EXISTS Superusuario(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
+    Apellido varchar(100),
     Correo varchar(100),
     Contrasenia varchar(100)
 );
@@ -85,6 +86,7 @@ CREATE TABLE IF NOT EXISTS RespUs(
 CREATE TABLE IF NOT EXISTS Usuario(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
+    Apellido varchar(100),
     edad int,
     Correo varchar(100),
     Contrasenia varchar(100)
