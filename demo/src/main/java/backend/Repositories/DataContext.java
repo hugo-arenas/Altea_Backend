@@ -1,4 +1,4 @@
-package main.java.com.example.demo.Repositories;
+package backend.Repositories;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.sql2o.Sql2o;
 
 @Configuration
-public class DatabaseContext {
+public class DataContext {
     @Value("${database.url}")
     private String dbUrl;
 

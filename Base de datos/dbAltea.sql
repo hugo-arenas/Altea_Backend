@@ -89,7 +89,8 @@ CREATE TABLE IF NOT EXISTS Usuario(
     Apellido varchar(100),
     edad int,
     Correo varchar(100),
-    Contrasenia varchar(100)
+    Contrasenia varchar(100),
+    loginToken int
 );
 
 CREATE TABLE IF NOT EXISTS Estadistica(

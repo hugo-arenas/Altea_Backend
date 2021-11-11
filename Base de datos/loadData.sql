@@ -1,14 +1,14 @@
 -- Usuario
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia)
-VALUES ('Octavio', 'Canales','22','octavio@correo.cl','octavio');
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia)
-VALUES ('Martin', 'Ormazabal','22','martin@correo.cl','martin');
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia)
-VALUES ('Juan', ' Arreondo','22','juan@correo.cl','juan');
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia)
-VALUES ('Hugo', 'Arenas','22','hugo@correo.cl','hugo');
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia)
-VALUES ('Michael', 'Aguilera','22','michael@correo.cl','michael');
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
+VALUES ('Octavio', 'Canales','22','octavio@correo.cl','octavio','1');
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
+VALUES ('Martin', 'Ormazabal','22','martin@correo.cl','martin','2');
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
+VALUES ('Juan', ' Arreondo','22','juan@correo.cl','juan','3');
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
+VALUES ('Hugo', 'Arenas','22','hugo@correo.cl','hugo','4');
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
+VALUES ('Michael', 'Aguilera','22','michael@correo.cl','michael','5');
 --Empresa
 INSERT INTO Empresa (Nombre, Correo, Contrasenia)
 VALUES ('Empresa X','empresax@correo.cl','empresax');

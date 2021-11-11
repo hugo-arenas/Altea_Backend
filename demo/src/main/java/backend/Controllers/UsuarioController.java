@@ -1,7 +1,7 @@
-package main.java.com.example.demo.Altea.Controllers;
+package backend.Controllers;
 
-import main.java.Models.UsuarioModel;
-import main.java.Repositories.UsuarioRepository;
+import backend.Models.UsuarioModel;
+import backend.Repositories.UsuarioRepository;
 
 @CrossOrigin(origins="*")
 @RestController
