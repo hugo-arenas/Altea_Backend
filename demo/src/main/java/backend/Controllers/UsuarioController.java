@@ -3,6 +3,8 @@ package backend.Controllers;
 import backend.Models.UsuarioModel;
 import backend.Repositories.UsuarioRepository;
 
+import java.util.List;
+
 @CrossOrigin(origins="*")
 @RestController
 public class UsuarioController {

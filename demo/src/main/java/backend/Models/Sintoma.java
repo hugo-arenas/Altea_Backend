@@ -1,13 +1,13 @@
 package main.java.backend.Models;
 
-public class ConsejoModel {
+public class Sintoma {
     private Long id;
+    private String Nombre;
     private String Descripcion;
 
-    public ConsejoModel(){}
-
-    public ConsejoModel(Long id, String Descripcion){
+    public Sintoma(Long id, String Nombre, String Descripcion){
         this.id = id;
+        this.Nombre = Nombre;
         this.Descripcion = Descripcion;
     }
 
@@ -17,6 +17,14 @@ public class ConsejoModel {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
     public String getDescripcion() {

@@ -1,13 +1,11 @@
 package main.java.backend.Models;
 
-public class SintomaModel {
+public class Noticia {
     private Long id;
     private String Nombre;
     private String Descripcion;
 
-    public SintomaModel(){}
-
-    public SintomaModel(Long id, String Nombre, String Descripcion){
+    public Noticia(Long id, String Nombre, String Descripcion){
         this.id = id;
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;

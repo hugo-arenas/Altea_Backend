@@ -1,10 +1,10 @@
 package main.java.backend.Models;
 
-public class RespUsModel {
+public class RespUs {
     private Long id;
     private String Descripcion;
 
-    public RespUsModel(Long id, String Descripcion){
+    public RespUs(Long id, String Descripcion){
         this.id = id;
         this.Descripcion = Descripcion;
     }

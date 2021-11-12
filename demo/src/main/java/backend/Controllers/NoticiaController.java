@@ -3,6 +3,8 @@ package main.java.backend.Controllers;
 import backend.Models.NoticiaModel;
 import backend.Repositories.NoticiaRepository;
 
+import java.util.List;
+
 @CrossOrigin(origins="*")
 @RestController
 public class NoticiaController {

@@ -1,6 +1,6 @@
 package main.java.backend.Controllers;
 
-import backend.Models.RespChatModel;
+import backend.Models.RespChat;
 import backend.Repositories.RespChatRepository;
 
 @CrossOrigin(origins="*")

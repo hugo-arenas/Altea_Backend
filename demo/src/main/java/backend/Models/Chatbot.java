@@ -1,13 +1,11 @@
 package main.java.backend.Models;
 
-public class NoticiaModel {
+public class Chatbot {
     private Long id;
     private String Nombre;
     private String Descripcion;
 
-    public NoticiaModel(){}
-
-    public NoticiaModel(Long id, String Nombre, String Descripcion){
+    public Chatbot(Long id, String Nombre, String Descripcion){
         this.id = id;
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;

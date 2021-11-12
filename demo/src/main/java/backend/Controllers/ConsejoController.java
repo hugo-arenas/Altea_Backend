@@ -3,6 +3,8 @@ package backend.Controllers;
 import backend.Models.ConsejoModel;
 import backend.Repositories.ConsejoRepository;
 
+import java.util.List;
+
 @CrossOrigin(origins="*")
 @RestController
 public class ConsejoController {

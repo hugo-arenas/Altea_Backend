@@ -1,28 +1,30 @@
 package main.java.backend.Models;
 
-public class SuperusuarioModel {
+public class Usuario {
     private Long id;
     private String Nombre;
     private String Apellido;
     private String Correo;
     private String Contrasenia;
+    private int Edad;
+    private int loginToken;
 
-    public SuperusuarioModel(){}
-
-    public SuperusuarioModel(Long id, String Nombre, String Apellido, String Correo, String Contrasenia){
+    public Usuario(Long id, String Nombre, String Apellido, int Edad, String Correo, String Contrasenia, int loginToken){
         this.id = id;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
+        this.Edad = Edad;
         this.Correo = Correo;
         this.Contrasenia = Contrasenia;
+        this.loginToken = loginToken;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(long insertedId) {
+        this.id = insertedId;
     }
 
     public String getNombre() {
@@ -41,6 +43,14 @@ public class SuperusuarioModel {
         this.Apellido = Apellido;
     }
 
+    public int getEdad() {
+		return this.Edad;
+	}
+
+	public void setEdad(int Edad) {
+		this.Edad = Edad;
+	}
+
     public String getCorreo() {
         return Correo;
     }
@@ -55,5 +65,13 @@ public class SuperusuarioModel {
 
     public void setContrasenia(String Contrasenia) {
         this.Contrasenia = Contrasenia;
+    }
+
+    public int getLoginToken() {
+        return this.loginToken;
+    }
+
+    public void setLoginToken(int loginToken) {
+        this.loginToken = loginToken;
     }
 }

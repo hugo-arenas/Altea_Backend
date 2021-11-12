@@ -1,12 +1,12 @@
 package main.java.backend.Models;
 
-public class EmpresaModel {
+public class Empresa {
     private Long id;
     private String Nombre;
     private String Correo;
     private String Contrasenia;
 
-    public EmpresaModel(Long id, String Nombre, String Correo, String Contrasenia){
+    public Empresa(Long id, String Nombre, String Correo, String Contrasenia){
         this.id = id;
         this.Nombre = Nombre;
         this.Correo = Correo;

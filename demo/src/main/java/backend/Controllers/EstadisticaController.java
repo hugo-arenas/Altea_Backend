@@ -3,6 +3,8 @@ package main.java.backend.Controllers;
 import backend.Models.EstadisticaModel;
 import backend.Repositories.EstadisticaRepository;
 
+import java.util.List;
+
 @CrossOrigin(origins="*")
 @RestController
 public class EstadisticaController {

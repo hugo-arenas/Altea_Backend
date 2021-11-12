@@ -1,16 +1,14 @@
 package main.java.backend.Models;
 
-public class PatologiaModel {
+public class Estadistica {
     private Long id;
     private String Nombre;
     private String Descripcion;
-    private String Recomendacion;
 
-    public PatologiaModel(Long id, String Nombre, String Descripcion, String Recomendacion){
+    public Estadistica(Long id, String Nombre, String Descripcion){
         this.id = id;
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
-        this.Recomendacion = Recomendacion;
     }
 
     public Long getId() {
@@ -37,11 +35,4 @@ public class PatologiaModel {
         this.Descripcion = Descripcion;
     }
 
-    public String getRecomendacion() {
-        return Recomendacion;
-    }
-
-    public void setRecomendacion(String Recomendacion) {
-        this.Recomendacion = Recomendacion;
-    }
 }

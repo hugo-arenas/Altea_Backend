@@ -3,6 +3,8 @@ package main.java.backend.Controllers;
 import backend.Models.SintomaModel;
 import backend.Repositories.SintomaRepository;
 
+import java.util.List;
+
 @CrossOrigin(origins="*")
 @RestController
 public class SintomaController {

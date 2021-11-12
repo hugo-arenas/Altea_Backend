@@ -3,6 +3,8 @@ package main.java.backend.Controllers;
 import backend.Models.EmpresaModel;
 import backend.Repositories.EmpresaRepository;
 
+import java.util.List;
+
 @CrossOrigin(origins="*")
 @RestController
 public class EmpresaController {

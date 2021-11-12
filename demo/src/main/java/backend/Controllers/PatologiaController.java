@@ -3,6 +3,8 @@ package main.java.backend.Controllers;
 import backend.Models.PatologiaModel;
 import backend.Repositories.PatologiaRepository;
 
+import java.util.List;
+
 @CrossOrigin(origins="*")
 @RestController
 public class PatologiaController {

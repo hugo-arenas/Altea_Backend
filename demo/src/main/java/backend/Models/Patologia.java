@@ -1,16 +1,16 @@
 package main.java.backend.Models;
 
-public class ChatbotModel {
+public class Patologia {
     private Long id;
     private String Nombre;
     private String Descripcion;
+    private String Recomendacion;
 
-    public ChatbotModel(){}
-
-    public ChatbotModel(Long id, String Nombre, String Descripcion){
+    public Patologia(Long id, String Nombre, String Descripcion, String Recomendacion){
         this.id = id;
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
+        this.Recomendacion = Recomendacion;
     }
 
     public Long getId() {
@@ -37,4 +37,11 @@ public class ChatbotModel {
         this.Descripcion = Descripcion;
     }
 
+    public String getRecomendacion() {
+        return Recomendacion;
+    }
+
+    public void setRecomendacion(String Recomendacion) {
+        this.Recomendacion = Recomendacion;
+    }
 }
