@@ -29,7 +29,7 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     @Override
     public List<Usuario> getAllUsuario() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("ID AS ID, Nombre AS Nombre, Apellido AS Apellido, edad AS Edad, Correo AS E-mail, Contrasenia AS Contraseña").executeAndFetch(Usuario.class);
+            return conn.createQuery("ID AS ID, Nombre AS Nombre, Apellido AS Apellido, edad AS Edad, Correo AS Correo, Contrasenia AS Contraseña").executeAndFetch(Usuario.class);
         
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -40,18 +40,19 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     @Override
     public Usuario createUsuario(Usuario Usuario) {
         try(Connection conn = sql2o.open()){
-            Usuario v1 = conn.createQuery("select * from Usuario where Email=:Email").addParameter("Email",Usuario.getCorreo()).executeAndFetchFirst(Usuario.class);
+            Usuario v1 = conn.createQuery("select * from Usuario where Correo=:Correo").addParameter("Correo",Usuario.getCorreo()).executeAndFetchFirst(Usuario.class);
             if (v1 == null){
                 int insertedId = countUsuario()+1;
-                conn.createQuery("insert into Usuario (ID, Nombre, Apellido, edad, Correo, Contrasenia, loginToken)"+
-                        " values (:id, :UsuarioNombre, :UsuarioApellido, :edad, :email, :pass)") 
+                conn.createQuery("insert into Usuario (ID, Nombre, Apellido, edad, Correo, Contrasenia, loginToken, id_chatbot)"+
+                        " values (:id, :Nombre, :Apellido, :edad, :Correo, :Contrasenia, :id_chatbot)") 
                         .addParameter("id",  insertedId)                
-                        .addParameter("UsuarioNombre", Usuario.getNombre())
-                        .addParameter("UsuarioApellido", Usuario.getApellido())
+                        .addParameter("Nombre", Usuario.getNombre())
+                        .addParameter("Apellido", Usuario.getApellido())
                         .addParameter("edad", Usuario.getEdad())
-                        .addParameter("email", Usuario.getCorreo())
-                        .addParameter("pass", Usuario.getContrasenia())
+                        .addParameter("Correo", Usuario.getCorreo())
+                        .addParameter("Contrasenia", Usuario.getContrasenia())
                         .addParameter("loginToken", 0)
+                        .addParameter("id_chatbot", Usuario.getId_chatbot())
                         .executeUpdate().getKey();
                 Usuario.setId(insertedId);
                 return Usuario;  
@@ -82,7 +83,7 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
 
     @Override
     public Usuario getUsuario(long id){
-		String sql = "select ID AS ID, Nombre AS Nombre, Apellido AS Apellido, edad AS Edad, Correo AS E-mail, Contrasenia AS Contraseña, loginToken AS LoginToken from Usuario where ID=:id";
+		String sql = "select ID AS ID, Nombre AS Nombre, Apellido AS Apellido, edad AS Edad, Correo AS E-mail, Contrasenia AS Contraseña, loginToken AS LoginToken, id_chatbot AS id_chatbot from Usuario where ID=:id";
 		try (Connection con = sql2o.open()) {
 			return con.createQuery(sql)
 				.addParameter("id", id)
@@ -95,16 +96,17 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
 
     @Override
     public boolean updateUsuario(Usuario nuevoUsuario){
-        String updateSql = "update Usuario set Nombre = : Nombre, Apellido = : Apellido, edad = : Edad, Correo = : E-mail, Contrasenia = : Contraseña, loginToken = :loginToken where id = :id";
+        String updateSql = "update Usuario set Nombre = : Nombre, Apellido = : Apellido, edad = : edad, Correo = : Correo, Contrasenia = : Contrasenia, loginToken = :loginToken, id_chatbot = : id_chatbot where id = :id";
         try (Connection con = sql2o.open()) {   
             con.createQuery(updateSql)
+                .addParameter("id", nuevoUsuario.getId())
                 .addParameter("Apellido", nuevoUsuario.getApellido())
                 .addParameter("Nombre",nuevoUsuario.getNombre())
-                .addParameter("id", nuevoUsuario.getId())
-                .addParameter("Edad", nuevoUsuario.getEdad())
-                .addParameter("email", nuevoUsuario.getCorreo())
-                .addParameter("pass", nuevoUsuario.getContrasenia())
+                .addParameter("edad", nuevoUsuario.getEdad())
+                .addParameter("Correo", nuevoUsuario.getCorreo())
+                .addParameter("Contrasenia", nuevoUsuario.getContrasenia())
                 .addParameter("loginToken", nuevoUsuario.getLoginToken())
+                .addParameter("id_chatbot", nuevoUsuario.getId_chatbot())
                 .executeUpdate();
             return true;
         }catch(Exception e){
@@ -116,8 +118,8 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     @Override
     public Usuario getUserByToken(String token){
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * FROM Usuario WHERE loginToken = :v_token")
-                    .addParameter("v_token", token)
+            return conn.createQuery("SELECT * FROM Usuario WHERE loginToken = :loginToken")
+                    .addParameter("loginToken", token)
                     .executeAndFetchFirst(Usuario.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -130,9 +132,9 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
         System.out.println("HOLA BUENOS DÍAS/BUENAS TARDE/BUENAS NOCHES");
         try(Connection conn = sql2o.open()){
             System.out.println("HOLA BUENOS DÍAS/BUENAS TARDE/BUENAS NOCHES");
-            List<Usuario> findUsers = conn.createQuery("select * from Usuario where Correo=:email and Contrasenia=:pass")
-                .addParameter("email", user.getCorreo())
-                .addParameter("pass", user.getContrasenia())
+            List<Usuario> findUsers = conn.createQuery("select * from Usuario where Correo=:Correo and Contrasenia=:Contrasenia")
+                .addParameter("Correo", user.getCorreo())
+                .addParameter("Contrasenia", user.getContrasenia())
                 .executeAndFetch(Usuario.class);
             if(findUsers.size() == 1){
                 System.out.println("Usuario ingresado con exito");

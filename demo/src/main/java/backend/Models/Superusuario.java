@@ -6,13 +6,15 @@ public class Superusuario {
     private String Apellido;
     private String Correo;
     private String Contrasenia;
+    private int loginToken;
 
-    public Superusuario(Long id, String Nombre, String Apellido, String Correo, String Contrasenia){
+    public Superusuario(Long id, String Nombre, String Apellido, String Correo, String Contrasenia, int loginToken){
         this.id = id;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Correo = Correo;
         this.Contrasenia = Contrasenia;
+        this.loginToken = loginToken;
     }
 
     public Long getId() {
@@ -54,4 +56,12 @@ public class Superusuario {
     public void setContrasenia(String Contrasenia) {
         this.Contrasenia = Contrasenia;
     }
+
+    public int getLoginToken() {
+		return this.loginToken;
+	}
+
+	public void setLoginToken(int loginToken) {
+		this.loginToken = loginToken;
+	}
 }

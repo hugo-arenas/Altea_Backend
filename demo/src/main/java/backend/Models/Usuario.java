@@ -8,8 +8,9 @@ public class Usuario {
     private String Contrasenia;
     private int Edad;
     private int loginToken;
+    private Long id_chatbot;
 
-    public Usuario(Long id, String Nombre, String Apellido, int Edad, String Correo, String Contrasenia, int loginToken){
+    public Usuario(Long id, String Nombre, String Apellido, int Edad, String Correo, String Contrasenia, int loginToken, Long id_chatbot){
         this.id = id;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -17,6 +18,7 @@ public class Usuario {
         this.Correo = Correo;
         this.Contrasenia = Contrasenia;
         this.loginToken = loginToken;
+        this.id_chatbot = id_chatbot;
     }
 
     public Long getId() {
@@ -73,5 +75,13 @@ public class Usuario {
 
     public void setLoginToken(int loginToken) {
         this.loginToken = loginToken;
+    }
+
+    public Long getId_chatbot() {
+        return this.id_chatbot;
+    }
+
+    public void setId_chatbot(Long id_chatbot) {
+        this.id_chatbot = id_chatbot;
     }
 }

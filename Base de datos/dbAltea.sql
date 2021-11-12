@@ -28,7 +28,8 @@ CREATE TABLE IF NOT EXISTS Empresa(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Correo varchar(100),
-    Contrasenia varchar(100)
+    Contrasenia varchar(100),
+    loginToken int
 );
 
 
@@ -36,7 +37,7 @@ CREATE TABLE IF NOT EXISTS Patologia(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
     Descripcion varchar(100),
-    recomendacion varchar(100)
+    Recomendacion varchar(100)
 );
 
 CREATE TABLE IF NOT EXISTS Superusuario(
@@ -44,7 +45,8 @@ CREATE TABLE IF NOT EXISTS Superusuario(
     Nombre varchar(100),
     Apellido varchar(100),
     Correo varchar(100),
-    Contrasenia varchar(100)
+    Contrasenia varchar(100),
+    loginToken int
 );
 
 CREATE TABLE IF NOT EXISTS Noticia(
@@ -59,30 +61,6 @@ CREATE TABLE IF NOT EXISTS Chatbot(
     Descripcion varchar(100)
 );
 
-
-CREATE TABLE IF NOT EXISTS Consejo(
-    ID SERIAL PRIMARY KEY,
-    Descripcion varchar(100)
-);
-
-CREATE TABLE IF NOT EXISTS Sintoma(
-    ID SERIAL PRIMARY KEY,
-    Nombre varchar(100),
-    Descripcion varchar(100)
-);
-
-/*Tabla Respuesta Chatbot*/
-CREATE TABLE IF NOT EXISTS RespChat(
-    ID SERIAL PRIMARY KEY,
-    Descripcion varchar(100)
-);
-
-/*Tabla Respuesta usuario*/
-CREATE TABLE IF NOT EXISTS RespUs(
-    ID SERIAL PRIMARY KEY,
-    Descripcion varchar(100)
-);
-
 CREATE TABLE IF NOT EXISTS Usuario(
     ID SERIAL PRIMARY KEY,
     Nombre varchar(100),
@@ -90,7 +68,33 @@ CREATE TABLE IF NOT EXISTS Usuario(
     edad int,
     Correo varchar(100),
     Contrasenia varchar(100),
-    loginToken int
+    loginToken int,
+    id_chatbot SERIAL
+);
+
+CREATE TABLE IF NOT EXISTS RespChat(
+    ID SERIAL PRIMARY KEY,
+    Descripcion varchar(100),
+    id_chatbot SERIAL
+);
+
+CREATE TABLE IF NOT EXISTS RespUs(
+    ID SERIAL PRIMARY KEY,
+    Descripcion varchar(100),
+    id_RespChat SERIAL,
+    id_Usuario SERIAL
+);
+
+CREATE TABLE IF NOT EXISTS Consejo(
+    ID SERIAL PRIMARY KEY,
+    Nombre varchar(100),
+    Descripcion varchar(100)
+);
+
+CREATE TABLE IF NOT EXISTS Sintoma(
+    ID SERIAL PRIMARY KEY,
+    Nombre varchar(100),
+    Descripcion varchar(100)
 );
 
 CREATE TABLE IF NOT EXISTS Estadistica(
@@ -169,4 +173,16 @@ CREATE TABLE IF NOT EXISTS Usuario_Consejo(
     FOREIGN KEY (id_Usuario) REFERENCES Usuario (id),
     FOREIGN KEY (id_Consejo) REFERENCES Consejo (id)
 );
+
+ALTER TABLE RespUs
+ADD FOREIGN KEY (id_RespChat) REFERENCES RespChat(ID);
+
+ALTER TABLE RespUs
+ADD FOREIGN KEY (id_Usuario) REFERENCES Usuario(ID);
+
+ALTER TABLE Usuario
+ADD FOREIGN KEY (id_chatbot) REFERENCES Chatbot(ID);
+
+ALTER TABLE RespChat
+ADD FOREIGN KEY (id_chatbot) REFERENCES Chatbot(ID);
 

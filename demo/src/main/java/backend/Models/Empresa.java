@@ -5,8 +5,9 @@ public class Empresa {
     private String Nombre;
     private String Correo;
     private String Contrasenia;
+    private int loginToken;
 
-    public Empresa(Long id, String Nombre, String Correo, String Contrasenia){
+    public Empresa(Long id, String Nombre, String Correo, String Contrasenia, int loginToken){
         this.id = id;
         this.Nombre = Nombre;
         this.Correo = Correo;
@@ -44,5 +45,13 @@ public class Empresa {
     public void setContrasenia(String Contrasenia) {
         this.Contrasenia = Contrasenia;
     }
+
+    public int getLoginToken() {
+		return loginToken;
+	}
+
+	public void setLoginToken(int loginToken) {
+		this.loginToken = loginToken;
+	}
 }
 

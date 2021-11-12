@@ -1,25 +1,14 @@
--- Usuario
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
-VALUES ('Octavio', 'Canales','22','octavio@correo.cl','octavio','1');
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
-VALUES ('Martin', 'Ormazabal','22','martin@correo.cl','martin','2');
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
-VALUES ('Juan', ' Arreondo','22','juan@correo.cl','juan','3');
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
-VALUES ('Hugo', 'Arenas','22','hugo@correo.cl','hugo','4');
-INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia,loginToken)
-VALUES ('Michael', 'Aguilera','22','michael@correo.cl','michael','5');
 --Empresa
-INSERT INTO Empresa (Nombre, Correo, Contrasenia)
-VALUES ('Empresa X','empresax@correo.cl','empresax');
-INSERT INTO Empresa (Nombre, Correo, Contrasenia)
-VALUES ('Empresa Y','empresay@correo.cl','empresay');
-INSERT INTO Empresa (Nombre, Correo, Contrasenia)
-VALUES ('Empresa Z','empresaz@correo.cl','empresaz');
-INSERT INTO Empresa (Nombre, Correo, Contrasenia)
-VALUES ('Empresa W','empresaw@correo.cl','empresaw');
-INSERT INTO Empresa (Nombre, Correo, Contrasenia)
-VALUES ('Empresa B','empresab@correo.cl','empresab');
+INSERT INTO Empresa (Nombre, Correo, Contrasenia , loginToken)
+VALUES ('Empresa X','empresax@correo.cl','empresax',1);
+INSERT INTO Empresa (Nombre, Correo, Contrasenia , loginToken)
+VALUES ('Empresa Y','empresay@correo.cl','empresay',1);
+INSERT INTO Empresa (Nombre, Correo, Contrasenia , loginToken)
+VALUES ('Empresa Z','empresaz@correo.cl','empresaz',1);
+INSERT INTO Empresa (Nombre, Correo, Contrasenia , loginToken)
+VALUES ('Empresa W','empresaw@correo.cl','empresaw',1);
+INSERT INTO Empresa (Nombre, Correo, Contrasenia , loginToken)
+VALUES ('Empresa B','empresab@correo.cl','empresab',1);
 --Patologia
 INSERT INTO Patologia (Nombre, Descripcion, recomendacion)
 VALUES ('Estres X','blablabla','blablabla');
@@ -32,14 +21,14 @@ VALUES ('Estres W','blablabla','blablabla');
 INSERT INTO Patologia (Nombre, Descripcion, recomendacion)
 VALUES ('Estres B','blablabla','blablabla');
 --Superusuario
-INSERT INTO Superusuario (Nombre, Apellido, Correo, Contrasenia)
-VALUES ('Florencia', 'Anguita','florencia@correo.cl','florencia');
-INSERT INTO Superusuario (Nombre, Apellido, Correo, Contrasenia)
-VALUES ('Consuelo', 'Lastra','consuelo@correo.cl','consuelo');
-INSERT INTO Superusuario (Nombre, Apellido, Correo, Contrasenia)
-VALUES ('Magdalena', 'Serrano','magda@correo.cl','magda');
-INSERT INTO Superusuario (Nombre, Apellido, Correo, Contrasenia)
-VALUES ('Varinnia', 'Frank','vari@correo.cl','vari');
+INSERT INTO Superusuario (Nombre, Apellido, Correo, Contrasenia, loginToken)
+VALUES ('Florencia', 'Anguita','florencia@correo.cl','florencia', 1);
+INSERT INTO Superusuario (Nombre, Apellido, Correo, Contrasenia, loginToken)
+VALUES ('Consuelo', 'Lastra','consuelo@correo.cl','consuelo', 1);
+INSERT INTO Superusuario (Nombre, Apellido, Correo, Contrasenia, loginToken)
+VALUES ('Magdalena', 'Serrano','magda@correo.cl','magda', 1);
+INSERT INTO Superusuario (Nombre, Apellido, Correo, Contrasenia, loginToken)
+VALUES ('Varinnia', 'Frank','vari@correo.cl','vari', 1);
 --Noticia
 INSERT INTO Noticia (Nombre, Descripcion)
 VALUES ('Robot emocional','Robot que refleja y muestra emociones humanas.');
@@ -63,16 +52,16 @@ VALUES ('Luciano','Se pone en el lugar de cada usuario.');
 INSERT INTO Chatbot (Nombre, Descripcion)
 VALUES ('Ariel','Un poco de todos los chatbots anteriores.');
 --Consejo
-INSERT INTO Consejo (Descripcion)
-VALUES ('Si respiras en el agua, te ahogas.');
-INSERT INTO Consejo (Descripcion)
-VALUES ('Si aprietas el gatillo de una pistola, disparas.');
-INSERT INTO Consejo (Descripcion)
-VALUES ('Si te matan, te mueres.');
-INSERT INTO Consejo (Descripcion)
-VALUES ('Si caminas, avanzas.');
-INSERT INTO Consejo (Descripcion)
-VALUES ('Mas vale pajaro en mano que mil picoteandote la cabeza.');
+INSERT INTO Consejo (Nombre, Descripcion)
+VALUES ('Agua','Si respiras en el agua, te ahogas.');
+INSERT INTO Consejo (Nombre, Descripcion)
+VALUES ('Pistola','Si aprietas el gatillo de una pistola, disparas.');
+INSERT INTO Consejo (Nombre, Descripcion)
+VALUES ('Matar','Si te matan, te mueres.');
+INSERT INTO Consejo (Nombre, Descripcion)
+VALUES ('Caminar','Si caminas, avanzas.');
+INSERT INTO Consejo (Nombre, Descripcion)
+VALUES ('Pajaro','Mas vale pajaro en mano que mil picoteandote la cabeza.');
 --Sintoma
 INSERT INTO Sintoma (Nombre, Descripcion)
 VALUES ('Estres','No es dos.');
@@ -84,28 +73,40 @@ INSERT INTO Sintoma (Nombre, Descripcion)
 VALUES ('Somnolencia','Duerma bien.');
 INSERT INTO Sintoma (Nombre, Descripcion)
 VALUES ('Tick nervioso','No sea nervioso.');
+
+-- Usuario
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia, loginToken, id_chatbot)
+VALUES ('Octavio', 'Canales','22','octavio@correo.cl','octavio',1,1);
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia, loginToken, id_chatbot)
+VALUES ('Martin', 'Ormazabal','22','martin@correo.cl','martin',1,2);
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia, loginToken, id_chatbot)
+VALUES ('Juan', 'Arreondo','22','juan@correo.cl','juan',1,3);
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia, loginToken, id_chatbot)
+VALUES ('Hugo', 'Arenas','22','hugo@correo.cl','hugo',1,4);
+INSERT INTO Usuario (Nombre, Apellido, edad, Correo, Contrasenia, loginToken, id_chatbot)
+VALUES ('Michael', 'Aguilera','22','michael@correo.cl','michael',1,5);
 --RespChat
-INSERT INTO RespChat( Descripcion)
-VALUES ('Sus necesidades no son problema mio.');
-INSERT INTO RespChat( Descripcion)
-VALUES ('Suavamente besame que quiero sentir tus labios besandome otra vez....SUAVE');
-INSERT INTO RespChat( Descripcion)
-VALUES ('Albion Online es un mmorpg no lineal en el que puedes escribir tu propia historia');
-INSERT INTO RespChat( Descripcion)
-VALUES ('¿Esto en que afecta huachipato?');
-INSERT INTO RespChat( Descripcion)
-VALUES ('Estuve bajo la lluvia 2 horas, 1000 horas, como un perro');
+INSERT INTO RespChat(Descripcion, id_chatbot)
+VALUES ('Sus necesidades no son problema mio.',1);
+INSERT INTO RespChat(Descripcion, id_chatbot)
+VALUES ('Suavamente besame que quiero sentir tus labios besandome otra vez....SUAVE',2);
+INSERT INTO RespChat(Descripcion, id_chatbot)
+VALUES ('Albion Online es un mmorpg no lineal en el que puedes escribir tu propia historia',3);
+INSERT INTO RespChat(Descripcion, id_chatbot)
+VALUES ('¿Esto en que afecta huachipato?',4);
+INSERT INTO RespChat(Descripcion, id_chatbot)
+VALUES ('Estuve bajo la lluvia 2 horas, 1000 horas, como un perro',5);
 --RespUs
-INSERT INTO RespUs(Descripcion)
-VALUES ('Eso tilin, baila tilin');
-INSERT INTO RespUs(Descripcion)
-VALUES ('MIMAMAMEMIMA');
-INSERT INTO RespUs(Descripcion)
-VALUES ('Entonces dave inteligentemente armo un megafono con una ardilla, una cuerda y un megafono');
-INSERT INTO RespUs(Descripcion)
-VALUES ('Dime, ¿cuanto es 5 + 6?');
-INSERT INTO RespUs(Descripcion)
-VALUES ('Flores azules espinas rojas flores azules espinas rojas, seria mas facil si no fuera daltonico');
+INSERT INTO RespUs(Descripcion,id_Usuario,id_RespChat)
+VALUES ('Eso tilin, baila tilin',1,1);
+INSERT INTO RespUs(Descripcion,id_Usuario,id_RespChat)
+VALUES ('MIMAMAMEMIMA',2,2);
+INSERT INTO RespUs(Descripcion,id_Usuario,id_RespChat)
+VALUES ('Entonces dave inteligentemente armo un megafono con una ardilla, una cuerda y un megafono',3,3);
+INSERT INTO RespUs(Descripcion,id_Usuario,id_RespChat)
+VALUES ('Dime, ¿cuanto es 5 + 6?',4,4);
+INSERT INTO RespUs(Descripcion,id_Usuario,id_RespChat)
+VALUES ('Flores azules espinas rojas flores azules espinas rojas, seria mas facil si no fuera daltonico',5,5);
 --Estadistica
 INSERT INTO Estadistica(Nombre, Descripcion)
 VALUES ('Corrupción latina','Acenso indiscriminado');
