@@ -1,6 +1,6 @@
-package backend.Controllers;
+package main.java.backend.Controllers;
 
-import backend.Models.UsuarioModel;
+import backend.Models.Usuario;
 import backend.Repositories.UsuarioRepository;
 
 import java.util.List;

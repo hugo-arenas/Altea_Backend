@@ -1,6 +1,6 @@
 package backend.Repositories;
 
-import backend.Models.UsuarioModel;
+import backend.Models.Usuario;
 import backend.Repositories.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +27,9 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     }
 
     @Override
-    public List<UsuarioModel> getAllUsuario() {
+    public List<Usuario> getAllUsuario() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("ID AS ID, Nombre AS Nombre, Apellido AS Apellido, edad AS Edad, Correo AS E-mail, Contrasenia AS Contraseña").executeAndFetch(UsuarioModel.class);
+            return conn.createQuery("ID AS ID, Nombre AS Nombre, Apellido AS Apellido, edad AS Edad, Correo AS E-mail, Contrasenia AS Contraseña").executeAndFetch(Usuario.class);
         
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -38,9 +38,9 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     }
 
     @Override
-    public UsuarioModel createUsuario(UsuarioModel Usuario) {
+    public Usuario createUsuario(Usuario Usuario) {
         try(Connection conn = sql2o.open()){
-            UsuarioModel v1 = conn.createQuery("select * from Usuario where Email=:Email").addParameter("Email",Usuario.getCorreo()).executeAndFetchFirst(UsuarioModel.class);
+            Usuario v1 = conn.createQuery("select * from Usuario where Email=:Email").addParameter("Email",Usuario.getCorreo()).executeAndFetchFirst(Usuario.class);
             if (v1 == null){
                 int insertedId = countUsuario()+1;
                 conn.createQuery("insert into Usuario (ID, Nombre, Apellido, edad, Correo, Contrasenia, loginToken)"+
@@ -81,12 +81,12 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     }
 
     @Override
-    public UsuarioModel getUsuario(long id){
+    public Usuario getUsuario(long id){
 		String sql = "select ID AS ID, Nombre AS Nombre, Apellido AS Apellido, edad AS Edad, Correo AS E-mail, Contrasenia AS Contraseña, loginToken AS LoginToken from Usuario where ID=:id";
 		try (Connection con = sql2o.open()) {
 			return con.createQuery(sql)
 				.addParameter("id", id)
-				.executeAndFetchFirst(UsuarioModel.class);
+				.executeAndFetchFirst(Usuario.class);
 		}catch(Exception e){
             System.out.println(e.getMessage());
             return null;
@@ -94,7 +94,7 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
 	}
 
     @Override
-    public boolean updateUsuario(UsuarioModel nuevoUsuario){
+    public boolean updateUsuario(Usuario nuevoUsuario){
         String updateSql = "update Usuario set Nombre = : Nombre, Apellido = : Apellido, edad = : Edad, Correo = : E-mail, Contrasenia = : Contraseña, loginToken = :loginToken where id = :id";
         try (Connection con = sql2o.open()) {   
             con.createQuery(updateSql)
@@ -114,11 +114,11 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     }
 
     @Override
-    public UsuarioModel getUserByToken(String token){
+    public Usuario getUserByToken(String token){
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * FROM Usuario WHERE loginToken = :v_token")
                     .addParameter("v_token", token)
-                    .executeAndFetchFirst(UsuarioModel.class);
+                    .executeAndFetchFirst(Usuario.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
             return null;
@@ -126,14 +126,14 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     }
 
     @Override
-    public UsuarioModel logIn(UsuarioModel user) {
+    public Usuario logIn(Usuario user) {
         System.out.println("HOLA BUENOS DÍAS/BUENAS TARDE/BUENAS NOCHES");
         try(Connection conn = sql2o.open()){
             System.out.println("HOLA BUENOS DÍAS/BUENAS TARDE/BUENAS NOCHES");
-            List<UsuarioModel> findUsers = conn.createQuery("select * from Usuario where Correo=:email and Contrasenia=:pass")
+            List<Usuario> findUsers = conn.createQuery("select * from Usuario where Correo=:email and Contrasenia=:pass")
                 .addParameter("email", user.getCorreo())
                 .addParameter("pass", user.getContrasenia())
-                .executeAndFetch(UsuarioModel.class);
+                .executeAndFetch(Usuario.class);
             if(findUsers.size() == 1){
                 System.out.println("Usuario ingresado con exito");
                 user.setLoginToken(1);
@@ -148,11 +148,11 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
         }
     }   
     @Override
-    public String logOut(UsuarioModel user){
+    public String logOut(Usuario user){
         try(Connection conn = sql2o.open()){
-            List<UsuarioModel> findUsers = conn.createQuery("select * from Usuario where id=:id")
+            List<Usuario> findUsers = conn.createQuery("select * from Usuario where id=:id")
                     .addParameter("id", user.getId())
-                    .executeAndFetch(UsuarioModel.class);
+                    .executeAndFetch(Usuario.class);
             if(findUsers.size() == 1){
                 try(Connection con = sql2o.open()){
                     user.setLoginToken(0);
