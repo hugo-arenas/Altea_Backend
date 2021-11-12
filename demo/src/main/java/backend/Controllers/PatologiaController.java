@@ -1,6 +1,6 @@
 package main.java.backend.Controllers;
 
-import backend.Models.PatologiaModel;
+import backend.Models.Patologia;
 import backend.Repositories.PatologiaRepository;
 
 import java.util.List;

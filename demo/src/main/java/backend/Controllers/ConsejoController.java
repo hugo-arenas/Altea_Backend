@@ -1,6 +1,6 @@
 package backend.Controllers;
 
-import backend.Models.ConsejoModel;
+import backend.Models.Consejo;
 import backend.Repositories.ConsejoRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package main.java.backend.Controllers;
 
-import backend.Models.SintomaModel;
+import backend.Models.Sintoma;
 import backend.Repositories.SintomaRepository;
 
 import java.util.List;

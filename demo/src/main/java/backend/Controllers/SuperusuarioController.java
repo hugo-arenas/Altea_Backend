@@ -1,6 +1,6 @@
 package main.java.backend.Controllers;
 
-import backend.Models.SuperusuarioModel;
+import backend.Models.Superusuario;
 import backend.Repositories.SuperusuarioRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package main.java.backend.Controllers;
 
-import backend.Models.EstadisticaModel;
+import backend.Models.Estadistica;
 import backend.Repositories.EstadisticaRepository;
 
 import java.util.List;

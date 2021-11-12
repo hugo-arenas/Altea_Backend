@@ -1,6 +1,6 @@
 package main.java.backend.Controllers;
 
-import backend.Models.EmpresaModel;
+import backend.Models.Empresa;
 import backend.Repositories.EmpresaRepository;
 
 import java.util.List;

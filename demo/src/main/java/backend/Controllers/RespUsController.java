@@ -1,6 +1,6 @@
 package main.java.backend.Controllers;
 
-import backend.Models.RespUsModel;
+import backend.Models.RespUs;
 import backend.Repositories.RespUsRepository;
 
 import java.util.List;

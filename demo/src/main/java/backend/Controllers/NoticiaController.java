@@ -1,6 +1,6 @@
 package main.java.backend.Controllers;
 
-import backend.Models.NoticiaModel;
+import backend.Models.Noticia;
 import backend.Repositories.NoticiaRepository;
 
 import java.util.List;

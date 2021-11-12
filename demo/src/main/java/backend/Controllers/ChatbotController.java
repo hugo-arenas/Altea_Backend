@@ -2,7 +2,7 @@ package main.java.backend.Controllers;
 
 import java.util.List;
 
-import backend.Models.ChatbotController;
+import backend.Models.Chatbot;
 import backend.Repositories.ChatbotRepository;
 
 @CrossOrigin(origins="*")
