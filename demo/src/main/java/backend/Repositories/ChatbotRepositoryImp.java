@@ -40,7 +40,7 @@ public class ChatbotRepositoryImp implements ChatbotRepository {
     @Override
     public Chatbot createChatbot(Chatbot chatbot) {
         try(Connection conn = sql2o.open()){
-            Chatbot v1 = conn.createQuery("select * from Chatbot where Nombre=:Nombre").addParameter("Nombre",Chatbot.getCorreo()).executeAndFetchFirst(Chatbot.class);
+            Chatbot v1 = conn.createQuery("select * from Chatbot where Nombre=:Nombre").addParameter("Nombre",Chatbot.getNombre()).executeAndFetchFirst(Chatbot.class);
             if (v1 == null){
                 int insertedId = countChatbot()+1;
                 conn.createQuery("insert into Chatbot (ID, Nombre, Descripcion)"+

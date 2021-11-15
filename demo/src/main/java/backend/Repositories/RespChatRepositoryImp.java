@@ -40,7 +40,7 @@ public class RespChatRepositoryImp implements RespChatRepository {
     @Override
     public RespChat createRespChat(RespChat RespChat) {
         try(Connection conn = sql2o.open()){
-            RespChat v1 = conn.createQuery("select * from RespChat where ID=:ID").addParameter("Nombre",RespChat.getCorreo()).executeAndFetchFirst(RespChat.class);
+            RespChat v1 = conn.createQuery("select * from RespChat where ID=:ID").addParameter("Nombre",RespChat.getId()).executeAndFetchFirst(RespChat.class);
             if (v1 == null){
                 int insertedId = countRespChat()+1;
                 conn.createQuery("insert into RespChat (ID, Nombre, Descripcion, id_chatbot)"+

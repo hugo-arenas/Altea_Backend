@@ -40,7 +40,7 @@ public class EstadisticaRepositoryImp implements EstadisticaRepository {
     @Override
     public Estadistica createEstadistica(Estadistica Estadistica) {
         try(Connection conn = sql2o.open()){
-            Estadistica v1 = conn.createQuery("select * from Estadistica where Nombre=:Nombre").addParameter("Nombre",Estadistica.getCorreo()).executeAndFetchFirst(Estadistica.class);
+            Estadistica v1 = conn.createQuery("select * from Estadistica where Nombre=:Nombre").addParameter("Nombre",Estadistica.getNombre()).executeAndFetchFirst(Estadistica.class);
             if (v1 == null){
                 int insertedId = countEstadistica()+1;
                 conn.createQuery("insert into Estadistica (ID, Nombre, Descripcion)"+

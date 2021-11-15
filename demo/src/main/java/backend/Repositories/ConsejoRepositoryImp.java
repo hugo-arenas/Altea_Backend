@@ -40,7 +40,7 @@ public class ConsejoRepositoryImp implements ConsejoRepository {
     @Override
     public Consejo createConsejo(Consejo Consejo) {
         try(Connection conn = sql2o.open()){
-            Consejo v1 = conn.createQuery("select * from Consejo where Nombre=:Nombre").addParameter("Nombre",Consejo.getCorreo()).executeAndFetchFirst(Consejo.class);
+            Consejo v1 = conn.createQuery("select * from Consejo where Nombre=:Nombre").addParameter("Nombre",Consejo.getNombre()).executeAndFetchFirst(Consejo.class);
             if (v1 == null){
                 int insertedId = countConsejo()+1;
                 conn.createQuery("insert into Consejo (ID, Nombre, Descripcion)"+

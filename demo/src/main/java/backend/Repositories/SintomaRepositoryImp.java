@@ -40,7 +40,7 @@ public class SintomaRepositoryImp implements SintomaRepository {
     @Override
     public Sintoma createSintoma(Sintoma Sintoma) {
         try(Connection conn = sql2o.open()){
-            Sintoma v1 = conn.createQuery("select * from Sintoma where Nombre=:Nombre").addParameter("Nombre",Sintoma.getCorreo()).executeAndFetchFirst(Sintoma.class);
+            Sintoma v1 = conn.createQuery("select * from Sintoma where Nombre=:Nombre").addParameter("Nombre",Sintoma.getNombre()).executeAndFetchFirst(Sintoma.class);
             if (v1 == null){
                 int insertedId = countSintoma()+1;
                 conn.createQuery("insert into Sintoma (ID, Nombre, Descripcion)"+

@@ -40,7 +40,7 @@ public class NoticiaRepositoryImp implements NoticiaRepository {
     @Override
     public Noticia createNoticia(Noticia Noticia) {
         try(Connection conn = sql2o.open()){
-            Noticia v1 = conn.createQuery("select * from Noticia where Nombre=:Nombre").addParameter("Nombre",Noticia.getCorreo()).executeAndFetchFirst(Noticia.class);
+            Noticia v1 = conn.createQuery("select * from Noticia where Nombre=:Nombre").addParameter("Nombre",Noticia.getNombre()).executeAndFetchFirst(Noticia.class);
             if (v1 == null){
                 int insertedId = countNoticia()+1;
                 conn.createQuery("insert into Noticia (ID, Nombre, Descripcion)"+
